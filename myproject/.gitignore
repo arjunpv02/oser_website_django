@@ -1,0 +1,13 @@
+
+
+myenv/
+
+db.sqlite3
+
+*.pyc
+*.pyo
+__pycache__/
+
+*.cache
+*.mo
+*.pid

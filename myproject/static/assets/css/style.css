@@ -1,0 +1,763 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap");
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "Inter", sans-serif;
+    line-height: 1.6;
+    color: #000000;
+    overflow-x: hidden;
+  }
+  
+ 
+/* Navbar */
+nav {
+    background-color: #fff;
+    position: sticky; /* Fixes navbar at the top while scrolling */
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 8px 60px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    display: flex; /* Aligns content horizontally */
+    justify-content: space-between; /* Space between logo and nav links */
+    align-items: center; /* Centers items vertically */
+}
+
+/* Logo */
+.navbar-logo img {
+    height: 50px; /* Set a consistent height for the logo */
+    width: auto;
+}
+
+/* Navigation Links */
+nav ul {
+    list-style: none;
+    display: flex; /* Align navigation items horizontally */
+    margin: 0;
+    padding: 0;
+    gap: 20px; /* Space between menu items */
+}
+
+nav ul li {
+    display: inline-block;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-family: "Jost", sans-serif;
+
+    font-weight: 400;
+    font-style: normal;
+    font-size: 21px; /* More balanced font size */
+    font-weight: 500;
+    text-transform: capitalize; /* Capitalizes only the first letter */
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    padding: 5px 0;
+    position: relative;
+}
+
+/* Hover and Active State */
+nav ul li a:hover,
+nav ul li a.active {
+    color: #007BFF;
+    border-bottom: 2px solid #007BFF;
+}
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+    nav {
+        padding: 10px 20px; /* Reduce padding on smaller screens */
+        flex-wrap: wrap; /* Wrap items if needed */
+    }
+
+    nav ul {
+        justify-content: center; /* Center navigation links on smaller screens */
+        gap: 15px; /* Reduce gap between links */
+    }
+}
+
+
+
+
+
+  /* Landing Page Section */
+.landing-page {
+  position: relative;
+  padding-top: 70px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden; /* Ensure background stays within bounds */
+}
+
+/* Background Image */
+/* Style for the Image Background */
+
+.image-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the entire section */
+  z-index: -1; /* Push the image to the background */
+}
+
+
+
+
+
+  @keyframes slideUp {
+    0% {
+        transform: translateY(100px); /* Start off-screen */
+        opacity: 0; /* Fully transparent */
+    }
+    100% {
+        transform: translateY(0); /* End at original position */
+        opacity: 1; /* Fully visible */
+    }
+}
+
+header {
+  color: white;
+  z-index: 2;
+  position: absolute; /* Changed from relative to absolute */
+  bottom: 0; /* Position header at the bottom of the landing page */
+  left: 0;
+  width: 100%; /* Make header as wide as the landing page */
+  padding: 1% 3%;
+  background: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
+  backdrop-filter: blur(5px); /* Apply blur effect */
+  border-top-left-radius: 50px; /* Curve top-left corner */
+  border-top-right-radius: 50px; /* Curve top-right corner */
+  animation: slideUp 1.5s ease-out;
+  padding-bottom: 3%;
+}
+
+header h1 {
+  font-family: "Lato", serif;
+  font-size: 70px;
+  margin-bottom: 10px;
+  text-align: left;
+  padding: 0px 0px;
+  letter-spacing: 0px;
+  color: #ffffff;
+}
+
+header p {
+  font-size: 37px;
+  padding: 3px;
+  margin-bottom: 0px;
+  text-align: left;
+  word-spacing: 0px;
+  letter-spacing: 0px;
+  color: #f0f0f0;
+}
+
+
+
+
+
+
+
+
+/* ================ MISSION SECTION ================================================= */
+
+/* Main container for the mission section */
+.mission-section {
+    display: flex; /* Flexbox for side-by-side layout */
+    justify-content: space-between; /* Space between left and right sections */
+    align-items: center; /* Vertically center content */
+    padding: 61px 20px; /* Padding for inner spacing */
+    background: linear-gradient(to top, rgba(165, 248, 185, 0.8), rgb(255, 255, 255));
+
+    /*margin-bottom: 50px;  Spacing below the section */
+}
+
+/* Left and Right sections occupy equal space */
+.mission-section .mission-left, .mission-section .mission-right {
+    flex: 1; /* Both sections take up equal width */
+}
+
+/* Left section styling */
+.mission-section .mission-left {
+    display: flex; /* Flexbox for content arrangement */
+    flex-direction: column; /* Stack heading and paragraph vertically */
+    justify-content: center; /* Center content vertically within the section */
+}
+
+/* Heading inside the left section */
+.mission-section .mission-left h2 {
+    font-size: 63px; /* Large font size */
+    margin-top: 15%; /* Top margin for spacing */
+    margin-left: 6%; /* Left margin for alignment */
+    margin-bottom: 2%; /* Bottom margin for spacing */
+    font-weight: bold; /* Bold text */
+    letter-spacing: 0px; /* No extra space between letters */
+    text-transform: uppercase; /* Uppercase text */
+    color: #000000; /* Black text color */
+    line-height: 1.2; /* Adjust line spacing */
+    font-family: "Jost", sans-serif;
+}
+
+/* Paragraph inside the left section */
+.mission-section .mission-left p {
+  font-family: "Jost", sans-serif;
+  font-size: 18px;
+  font-weight: 350;
+  color: #2a2a2a;
+    margin-left: 6%; /* Left margin for alignment */
+    margin-top: 4%;
+    margin-bottom: 12%; /* Bottom margin for spacing */
+
+    line-height: 1.1; /* Line spacing */
+    line-break: strict; /* Prevent unnecessary word breaks */
+    font-size: 23px; /* Large font size */
+    word-spacing: 1.8px;
+}
+
+/* Right section styling */
+.mission-section .mission-right {
+    display: flex; /* Flexbox for aligning content */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    padding: 6px 20px; /* Inner padding */
+    margin-bottom: 10px; /* Spacing below the section */
+}
+
+/* Image styling inside the right section */
+.mission-section .mission-right img {
+    max-width: 50%; /* Ensure image doesn't exceed container width */
+    max-height: 55%; /* Ensure image doesn't exceed container height */
+    object-fit: cover; /* Maintain aspect ratio and cover available space */
+    border-radius: 10px; /* Rounded corners for the image */
+    box-shadow: 0 4px 8px rgba(214, 151, 151, 0.2); /* Soft shadow for depth */
+}
+
+
+
+
+
+
+
+
+/* SERVICES SECTION */
+#services-section {
+    padding: 50px 10px;
+    background-color: rgba(165, 248, 185, 0.8);
+    text-align: center;
+}
+
+#services-section .services-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#services-section .section-title {
+    font-family: "Jost", sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    font-size: 63px; /* Large font size */
+    margin-bottom: 2%; /* Bottom margin for spacing */
+    font-weight: bold; /* Bold text */
+    letter-spacing: 0px; /* No extra space between letters */
+    text-transform: uppercase; /* Uppercase text */
+    color: #000000; /* Black text color */
+    line-height: 1.2; /* Adjust line spacing */
+}
+
+#services-section .section-description {
+    font-family: "Jost", sans-serif;
+    font-size: 23px;
+    font-weight: 440;
+    margin-bottom: 43px;
+    color: #2f2e2e;
+}
+
+#services-section .services-grid {
+    display: flex;
+    flex-wrap: nowrap; /* Prevent the items from wrapping to a new line */
+    gap: 20px;
+    justify-content: center;
+}
+
+#services-section .service-card {
+    background: #fff;
+    border: 1px solid #dcf1d7;
+    border-radius: 8px;
+    padding: 20px;
+    width: 370px;
+    gap: 25px;
+    text-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    cursor: pointer;
+}
+
+#services-section .service-card:hover {
+    transform: scale(1.20);
+    box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+#services-section .service-card .service-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+#services-section .service-card .service-title {
+    font-family: "Jost", sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #222;
+}
+
+#services-section .service-card .service-description {
+    font-family: "Jost", sans-serif;
+    font-size: 17px;
+    font-weight: 350;
+    color: #666;
+}
+
+/* RESPONSIVENESS */
+@media (max-width: 768px) {
+    #services-section .services-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #services-section .service-card {
+        width: 110%;
+    }
+}
+
+
+
+
+/*==================   FEATURES SECTION  ==========================*/
+
+.features-section {
+    
+    display: block; /* Changes layout to block so elements stack vertically */
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+    text-align: center; /* Ensures text is centered */
+    background-color: rgba(165, 248, 185, 0.8);
+    padding:0px;
+}
+.features-section .section-title {
+    padding-bottom:10px;
+    font-family: "Jost", sans-serif;
+    font-size: 63px; /* Large font size */
+    font-weight: bold; /* Bold text */
+    margin-bottom: 0%; /* Bottom margin for spacing */
+    letter-spacing: 0px; /* No extra space between letters */
+    text-transform: uppercase; /* Uppercase text */
+    color: #000000; /* Black text color */
+    line-height: 1.2; /* Adjust line spacing */
+    /*background-color: rgba(158, 248, 185, 0.8);*/
+    position: relative; /* Default position */
+    display: inline-block; /* Ensures the element is inline, so it can be centered */
+}
+.features-section .section-para{
+  padding:0px;
+  font-family: "Jost", sans-serif;
+  font-size: 23px;
+  font-weight: 440;
+  margin-bottom: 0px;
+  color: #2f2e2e;
+}
+
+.slider-container {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(to bottom,rgba(158, 248, 179, 0.8),rgba(176, 251, 176, 0.8));
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Jost", sans-serif;
+  }
+
+
+  .slider-container .slider-images {
+    display: flex;
+    align-items: center;
+    gap: 27px;
+  }
+  .slider-container .slider-images img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+  }
+  .slider-container .slider-img {
+    width: 110px;
+    border-radius: 6px;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    /*transition: 0.7s ease;*/
+
+    transition: transform 2s ease, height 2s ease, width 2s ease; /* Adjust timings for a smooth effect */
+    filter: brightness(0.5); /* Darken the image without affecting children */
+
+  }
+  .slider-container .slider-images .slider-img:first-child,
+  .slider-container .slider-images .slider-img:last-child {
+    height: 350px;
+  }
+  .slider-container .slider-images .slider-img:nth-child(2),
+  .slider-container .slider-images .slider-img:nth-child(4) {
+    height: 420px;
+  }
+  .slider-container .slider-images .slider-img:nth-child(3) {
+    height: 520px;
+  }
+  .slider-container .slider-img h1 {
+    font-family: "Jost", sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    text-align: left;
+    text-transform: uppercase;
+    color: #010022;
+    background-color: #ffffff; /* White background */
+    opacity: 1.2;
+    z-index: 111;
+    position: absolute;
+    padding-bottom: 5PX;
+    top: 50%;
+    left: -10%;
+    transform: rotate(270deg);
+    transition: 0.7s ease;
+  }
+  .slider-container .details {
+    position: absolute;
+    bottom: 43px;
+    left: 43px;
+  }
+  .slider-container .details h2 {
+    font-family: "Jost", sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    text-align: left;
+    line-height: 44px;
+    text-transform: uppercase;
+    transition: 0.7s ease;
+    display: none;
+  }
+  .slider-container .details p {
+    font-family: "Jost", sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: left;
+    line-height: 33px;
+    text-transform: uppercase;
+    transition: 0.7s ease;
+    display: none;
+    color: #000000;
+  }
+  .slider-container .slider-img.active {
+    width: 612.8px !important;
+    height: 660px !important;
+    filter: brightness(1);
+    z-index: 2;
+  }
+  .slider-container .slider-img.active h1 {
+    display: none;
+  }
+  .slider-container .slider-img.active .details p,
+  .slider-container .slider-img.active .details h2 {
+    display: block;
+  }
+
+
+/*++++++++++++++ query section ==================*/
+
+#contact-container {
+    height: 100vh;
+    background: linear-gradient(to bottom,rgba(176, 251, 176, 0.8),rgba(255, 255, 255, 0.8));
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+} 
+
+
+.contact-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.contact-left-title h2 {
+    font-weight: 550;
+    color: #021501;
+    font-size: 41px;
+    margin-bottom: 5px;
+    font-family: "Inter", sans-serif;
+    letter-spacing: 0px; /* No extra space between letters */
+    line-height: 1; /* Adjust line spacing */
+}
+
+.contact-left-title hr {
+    border: none;
+    width: 120px;
+    height: 5px;
+    background-color: #a363aa;
+    border-radius: 10px;
+}
+
+.contact-inputs {
+    width: 400px;
+    height: 50px;
+    border: none;
+    outline: none;
+    padding-left: 25px;
+    font-weight: 500;
+    color: #000000;
+    border-radius: 50px;
+    box-sizing: border-box;
+    background-color: #ffffff;
+}
+
+.contact-inputs:focus {
+    border: 2px solid #1b9625;
+}
+
+.contact-inputs::placeholder {
+    color: #a9a9a9;
+}
+
+textarea.contact-inputs {
+    height: 140px;
+    padding-top: 15px;
+    border-radius: 20px;
+}
+
+.contact-btn {
+    display: flex;
+    align-items: center;
+    padding: 15px 30px;
+    font-size: 16px;
+    color: #fff;
+    gap: 10px;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(270deg, #2f9c3b, #68a31c);
+    cursor: pointer;
+}
+
+.contact-btn img {
+    height: 25px;
+    size: 35%;
+    padding: 0;
+}
+
+.contact-right img {
+    width: 500px;
+}
+
+@media (max-width: 800px) {
+    .contact-inputs {
+        width: 80vw;
+    }
+
+    .contact-right {
+        display: none;
+    }
+}
+
+
+  /*=========== Footer Section ========================*/
+
+
+  footer {
+    margin: 0;
+    background: linear-gradient(to right,#fae3c0 , #add7fa);
+    color: rgb(255, 255, 255);
+    padding: 30px 0;
+    font-family: "Inter", sans-serif ;
+    box-sizing: border-box;
+    width: 100%;
+    /*position: absolute;*/
+    bottom : 4px;
+    border-top-left-radius: 90px !important;
+    border-top-right-radius: 90px !important;
+  }
+  
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    WIDTH :85%;
+    margin: auto;
+    flex-wrap: wrap;
+  }
+  
+  .footer-section {
+    flex : 1;
+    margin: 0 20px;
+  }
+
+  .footer-logo {
+    width :80px;
+    margin-bottom: 17px !important;
+  }
+
+  
+  .footer-section h3 {
+    font-size: 25px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-style: normal;
+    letter-spacing: 0;
+    font-family: "Inter ", sans-serif;
+  }
+  
+  .footer-section p,
+  .address-text,
+  .footer-section ul {
+    color: #0c0a0a;
+    font-size: 16px;
+    word-spacing: 2px;
+    line-height: 1.2;
+    padding-right: 40px !important;
+  }
+  
+  .footer-section ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .footer-section ul li {
+    margin: 5px 0;
+  }
+  
+  .footer-section ul li a {
+    color: #0c0a0a;
+    text-decoration: none;
+  }
+  
+  .footer-section ul li a:hover {
+    color: #f70c0c;
+  }
+  
+  .social-links {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .social-icon {
+    width: 23px;
+    height: 23px;
+    transition: transform 0.3s ease;
+    border-radius: 80%;
+  }
+  
+  .social-icon:hover {
+    transform: scale(1.2);
+  }
+  
+  .email-subscription {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  #email {
+    padding: 10px;
+    font-size: 14px;
+    width: 250px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    background-color: #2f2424;
+    color: white;
+    margin-bottom: 10px;
+    transition: background-color 0.3s;
+  }
+  
+  #email::placeholder {
+    color: #aaa;
+  }
+  
+  #email:focus {
+    background-color: #444;
+  }
+  
+  .subscribe-btn {
+    margin: 0;
+    padding: 0;
+    font-weight: 700;
+    background: #424b5e;
+    text-transform: lowercase;
+    color :rgb(214, 206, 246);
+    border: 2px solid ;
+    padding: 8px 10px;
+    border-radius: 21px;
+    cursor: pointer;
+    font-size: 13px;
+    
+  }
+
+  .subscribe-btn::before,
+  .subscribe-btn::after{
+    content: "";
+    position: absolute;
+    width: 14px;
+    height: 4px;
+    background: red;
+    transform: skewX(50deg);
+    transition: .4s  linear;
+  }
+  
+ .subscribe-btn::before{
+    top: -4px;
+    left: 10%
+ }
+ .subscribe-btn::after{
+    bottom: -4px;
+    right: 10%
+ }
+ .subscribe-btn:hover::before{
+    left: 80%;
+  }
+  .subscribe-btn:hover::after{
+    right: 80%;
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    background: linear-gradient(to right, #000000,#1f1a0e);
+    padding: 10px;
+    margin-top: 20px;
+    font-size: 12px;
+  }
+  
+  .footer-bottom p {
+    margin: 0;
+    color: #bbb;
+  }
+  

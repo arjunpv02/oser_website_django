@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Landing Page</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900&display=swap" rel="stylesheet">
+
+  {% load static %}
+
+
+<!-- jQuery (Ensure it's loaded before Owl Carousel) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Owl Carousel JS -->
+
+  <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/js/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/js/animate.min.css' %}">
+  <script src="{% static 'assets/js/script.js' %}"></script>
+  <script src="{% static 'assets/js/jQuery.js' %}"></script>
+</head>
+
+
+<body>
+
+
+
+    <!-- Include Navbar -->
+    {% include 'navbar.html' %}
+
+    <!-- Fullscreen Video (only on landing page) -->
+    <section class="landing-page" id="landing-page">
+
+ <!-- Image as a Background -->
+ <img src="static/assets/images/car___.jpg" alt="Background Image" class="image-background">
+  
+      <!-- Header Section (Main Heading) -->
+      <header>
+        <h1>Oser.ai</h1>
+        <p>Empowering sustainable mobility with cutting-edge EV charging, fleet management, and seamless V2V & V2I communication solutions.</p>
+        <!--<p> Future of e mobility</p> -->
+      </header>
+    </section>
+
+
+
+    <!-- Mission  Section: Below the video -->
+{% include "mission.html" %}
+
+    <!-- Services Section: Below the mission 
+    -->
+{% include "services.html" %}
+
+
+{% include "features.html"%}
+
+
+{% include "contact_us.html" %}
+  
+  
+
+
+  
+  
+
+{% include 'footer.html' %}
+
+<!--  <script>
+
+
+// Select all slider images
+const sliderImages = document.querySelectorAll('.slider-img');
+
+// Initial index for the active image
+let activeIndex = 0;
+
+// Variable to track if the slider is paused
+let isPaused = false;
+
+// Function to slide images
+function slideImages() {
+    if (isPaused) return; // Stop sliding if paused
+
+    // Remove the 'active' class from the current active image
+    sliderImages[activeIndex].classList.remove('active');
+
+    // Increment the index (loop back to 0 if at the end)
+    activeIndex = (activeIndex + 1) % sliderImages.length;
+
+    // Add the 'active' class to the new active image
+    sliderImages[activeIndex].classList.add('active');
+}
+
+// Function to toggle pause state on click
+function togglePause(event) {
+    if (event.target.closest('.slider-img')) {
+        isPaused = !isPaused; // Toggle pause state
+    }
+}
+
+// Add click event listener to each slider image
+sliderImages.forEach((img) => {
+    img.addEventListener('click', togglePause);
+});
+
+// Start the sliding functionality every 3 seconds
+setInterval(slideImages, 3000);
+
+
+
+
+    jQuery(document).ready(function ($) {
+      $(".slider-img").on("click", function () {
+        $(".slider-img").removeClass("active");
+        $(this).addClass("active");
+      });
+    });
+  </script>  -->
+
+</body>
+
+</html>
