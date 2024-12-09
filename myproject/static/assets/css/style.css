@@ -674,7 +674,7 @@ textarea.contact-inputs {
     width: 23px;
     height: 23px;
     transition: transform 0.3s ease;
-    border-radius: 80%;
+    border-radius: 20%;
   }
   
   .social-icon:hover {

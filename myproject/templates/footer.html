@@ -10,7 +10,7 @@
             </p>
             <div class="social-link">
                 <a href="#" target="_blank">
-                    <img src="{% static '/assets/images/icons/location.png' %}" alt="location" class="social-icon">
+                    <img src="{% static 'assets/images/icons/location.png' %}" alt="location" class="social-icon">
                 </a>
                 <span class="address-text">Bangalore, Karnataka, India</span>
             </div>
@@ -28,24 +28,20 @@
         <div class="footer-section">
             <h3>Follow Us</h3>
             <div class="social-links">
-                <a href="#" target="_blank"><img src="{% static '/assets/images/icons/linkedin-footer.png' %}" alt="linkedin" class="social-icon"></a>
-                <a href="#" target="_blank"><img src="{% static '/assets/images/icons/email-footer.png' %}" alt="Gmail" class="social-icon"></a>
-                <a href="#" target="_blank"><img src="{% static '/assets/images/icons/instagram-footer.png' %}" alt="Instagram" class="social-icon"></a>
-                <a href="#" target="_blank"><img src="{% static '/assets/images/icons/youtube-footer.png' %}" alt="Youtube" class="social-icon"></a>
+                <a href="#" target="_blank"><img src="{% static 'assets/images/icons/linkedin-footer.png' %}" alt="linkedin" class="social-icon"></a>
+                <a href="#" target="_blank"><img src="{% static 'assets/images/icons/email-footer.png' %}" alt="Gmail" class="social-icon"></a>
+                <a href="#" target="_blank"><img src="{% static 'assets/images/icons/instagram-footer.png' %}" alt="Instagram" class="social-icon"></a>
+                <a href="#" target="_blank"><img src="{% static 'assets/images/icons/youtube-footer.png' %}" alt="Youtube" class="social-icon"></a>
             </div>
+
             <!-- Email Subscription Form -->
             <div class="email-subscription">
-
-                <form action="{% url 'subscribe' %}" method="POST" id = "subscribe">
+                <form method="POST" id="subscribe">
                     {% csrf_token %}
                     <input type="email" name="email" id="email" placeholder="youremail@domain.com" required>
                     <button type="submit" id="subscribe-button" class="subscribe-btn">Subscribe to newsletter</button>
                 </form>
-
-                {% if message %}
-                <div class="message">{{ message }}</div>  <!-- Display the message -->
-                {% endif %}
-
+                <div id="message" class="message"></div> <!-- Message Display Area -->
             </div>
         </div>
     </div>
@@ -54,106 +50,32 @@
     </div>
 </footer>
 
+<script src="https://code.jquery.com/jquery-3.5.1.js" 
+integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" 
+crossorigin="anonymous"></script> 
 
-<script>
-    document.getElementById('subscribe-form').addEventListener('submit', async (e) => {
-        e.preventDefault(); // Prevent default form submission
-
-        const email = document.getElementById('email').value;
-        const csrfToken = "{{ csrf_token }}"; // Get the CSRF token
-
-        try {
-            const response = await fetch("{% url 'subscribe' %}", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/x-www-form-urlencoded",
-                    "X-CSRFToken": csrfToken,
-                },
-                body: new URLSearchParams({ email }),
-            });
-
-            const data = await response.json(); // Parse JSON response
-            const messageDiv = document.getElementById('message');
-            messageDiv.innerText = data.message;
-
-            // Optional: Add classes based on success or error for styling
-            if (data.success) {
-                messageDiv.className = 'message success';
-            } else {
-                messageDiv.className = 'message error';
-            }
-        } catch (error) {
-            const messageDiv = document.getElementById('message');
-            messageDiv.innerText = "An error occurred. Please try again.";
-            messageDiv.className = 'message error';
-            console.error(error);
-        }
-    });
+<script type="text/javascript"> 
+    $(document).on('submit', '#subscribe', function(e) { 
+        e.preventDefault(); 
+        $.ajax({ 
+            type: 'POST', 
+            url: '{% url "subscribe" %}', 
+            data: { 
+                email: $("#email").val(), 
+                csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val() 
+            }, 
+            success: function(response) { 
+                const message = response.message; 
+                const success = response.success; 
+                const messageDiv = $("#message"); 
+                
+                messageDiv.text(message); 
+                messageDiv.css("color", success ? "green" : "red"); 
+            }, 
+            error: function() { 
+                $("#message").text("An error occurred. Please try again."); 
+                $("#message").css("color", "red"); 
+            } 
+        }); 
+    }); 
 </script>
-
-
-
-
-
-<!--
-<script>
-    document.getElementById('subscribe-form').addEventListener('submit', async (e) => {
-        e.preventDefault(); // Prevent the default form submission
-        const email = document.getElementById('email').value;
-        const csrfToken = "{{ csrf_token }}"; // Get the CSRF token
-
-        try {
-            const response = await fetch("{% url 'subscribe' %}", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/x-www-form-urlencoded",
-                    "X-CSRFToken": csrfToken,
-                },
-                body: new URLSearchParams({ email }),
-            });
-
-            const message = await response.text(); // Get the response message
-            document.getElementById('message').innerText = message;
-        } catch (error) {
-            document.getElementById('message').innerText = "An error occurred. Please try again.";
-            console.error(error);
-        }
-    });
-</script>  -->
-
-<!--<script type="text/javascript">
-
-
-
-$(document).on('submit', '#subscribe', function (e) {
-    e.preventDefault(); // Prevent form submission/reload
-    
-    const email = $('#email').val();
-    const csrfToken = $('input[name=csrfmiddlewaretoken]').val();
-
-    if (!email) {
-        // If email is empty, show an error message
-        $("#message").html("<span style='color: red;'>Please enter a valid email address.</span>");
-        return;
-    }
-
-    // Perform AJAX POST request
-    $.ajax({
-        type: 'POST',
-        url: '/subscribe',
-        data: {
-            email: email,
-            csrfmiddlewaretoken: csrfToken
-        },
-        success: function (response) {
-            // Show the response message from the server
-            $("#message").html(`<span style='color: green;'>${response}</span>`);
-        },
-        error: function (xhr, status, error) {
-            // Handle errors
-            $("#message").html("<span style='color: red;'>An error occurred. Please try again later.</span>");
-        }
-    });
-});
-
-</script> -->

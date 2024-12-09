@@ -1,11 +1,11 @@
 {% load static %}
 
 <div class="section" id="contact-container">
-    <form action="https://api.web3forms.com/submit" method="POST" class="contact-left">
+    <form action="{% url 'contact' %}" method="POST" class="contact-left">
+        {% csrf_token %}
         <div class="contact-left-title">
             <h2>Need more info?<br>Connect with us!</h2>
         </div>
-        <input type="hidden" name="access_key" value="d9d6744a-b120-4dbb-86bc-56d01a14991c">
         <input type="text" name="name" placeholder="Your Name" class="contact-inputs" required>
         <input type="email" name="email" placeholder="Your Email" class="contact-inputs" required>
         <textarea name="message" placeholder="Your Message" class="contact-inputs" required></textarea>
@@ -14,7 +14,10 @@
             <img src="{% static '/assets/images/arrow.png' %}" alt="arrow">
         </button>
     </form>
+    <div id="response-message" class="message"></div> <!-- Message Display Area -->
     <div class="contact-right">
         <!-- You can add content or an image here -->
     </div>
 </div>
+
+

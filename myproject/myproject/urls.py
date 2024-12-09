@@ -5,6 +5,8 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.welcome),  # Include URLs from your app
+    path('', views.main_page),  # Include URLs from your app
     path('subscribe', views.subscribe, name= "subscribe"),
+    path('contact', views.contact, name= "contact"),
+    
 ]
