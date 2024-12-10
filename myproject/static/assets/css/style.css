@@ -16,7 +16,7 @@
     overflow-x: hidden;
   }
   
- 
+
 /* Navbar */
 nav {
     background-color: #fff;
@@ -90,7 +90,7 @@ nav ul li a.active {
 
 
 
-  /* Landing Page Section */
+/* Landing Page Section */
 .landing-page {
   position: relative;
   padding-top: 70px;
@@ -152,19 +152,20 @@ header h1 {
   font-size: 70px;
   margin-bottom: 10px;
   text-align: left;
-  padding: 0px 0px;
+  padding: 0px 30px;
   letter-spacing: 0px;
   color: #ffffff;
 }
 
 header p {
-  font-size: 37px;
-  padding: 3px;
+  font-size: 32px;
+  padding: 0px 25px;
   margin-bottom: 0px;
   text-align: left;
   word-spacing: 0px;
   letter-spacing: 0px;
-  color: #f0f0f0;
+  color: #e5f6c8;
+  font-weight: 400;
 }
 
 
@@ -491,6 +492,8 @@ header p {
 
 /*++++++++++++++ query section ==================*/
 
+
+
 #contact-container {
     height: 100vh;
     background: linear-gradient(to bottom,rgba(176, 251, 176, 0.8),rgba(255, 255, 255, 0.8));
@@ -588,6 +591,8 @@ textarea.contact-inputs {
         display: none;
     }
 }
+
+
 
 
   /*=========== Footer Section ========================*/

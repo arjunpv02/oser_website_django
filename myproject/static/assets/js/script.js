@@ -39,56 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-/*
-$(document).on('submit', '#subscribe', function (e) {
-    e.preventDefault(); // Prevent form submission/reload
-    
-    const email = $('#email').val();
-    const csrfToken = $('input[name=csrfmiddlewaretoken]').val();
-
-    if (!email) {
-        // If email is empty, show an error message
-        $("#message").html("<span style='color: red;'>Please enter a valid email address.</span>");
-        return;
-    }
-
-    // Perform AJAX POST request
-    $.ajax({
-        type: 'POST',
-        url: '/subscribe',
-        data: {
-            email: email,
-            csrfmiddlewaretoken: csrfToken
-        },
-        success: function (response) {
-            // Show the response message from the server
-            $("#message").html(`<span style='color: green;'>${response}</span>`);
-        },
-        error: function (xhr, status, error) {
-            // Handle errors
-            $("#message").html("<span style='color: red;'>An error occurred. Please try again later.</span>");
-        }
-    });
-});
-
-
-//AJAX EMAIL Form Submission Script
-/*$(document).on('submit', '#subscribe', function (e) {
-        e.preventDefault(); // Prevent form submission/reload
-        $.ajax({
-            type: 'POST',
-            url: '/subscribe',
-            data: { 
-                email: $('#email').val(),
-                csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
-            
-            },
-            success: function (data) {
-            $("message").html(data)
-            }
-        });
-});*/
-
 
 
 
@@ -103,6 +53,9 @@ function submitEmail() {
         alert("Please enter a valid email.");
     }
 }
+
+
+
 
 /*
 (function ($) {
