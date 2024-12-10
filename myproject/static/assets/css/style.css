@@ -19,7 +19,7 @@
 
 /* Navbar */
 nav {
-    background-color: #fff;
+    background-color: #ffffff;
     position: sticky; /* Fixes navbar at the top while scrolling */
     top: 0;
     left: 0;
@@ -160,6 +160,7 @@ header h1 {
 header p {
   font-size: 32px;
   padding: 0px 25px;
+  padding-bottom: 3%;
   margin-bottom: 0px;
   text-align: left;
   word-spacing: 0px;
@@ -476,8 +477,8 @@ header p {
     color: #000000;
   }
   .slider-container .slider-img.active {
-    width: 612.8px !important;
-    height: 660px !important;
+    width: 580.8px !important;
+    height: 610px !important;
     filter: brightness(1);
     z-index: 2;
   }

@@ -54,34 +54,3 @@ function submitEmail() {
     }
 }
 
-
-
-
-/*
-(function ($) {
-    "use strict";
-
-    // Testimonials carousel
-    $(".features .testimonial-carousel").owlCarousel({
-        autoplay: true,            // Enable autoplay
-        smartSpeed: 1000,          // Speed of transitions
-        center: true,              // Center-align items
-        margin: 24,                // Margin between items
-        dots: true,                // Enable dots navigation
-        loop: true,                // Enable infinite loop
-        nav: false,                // Disable next/prev navigation
-        responsive: {              // Responsive settings
-            0: {
-                items: 1           // 1 item for small screens
-            },
-            768: {
-                items: 2           // 2 items for medium screens
-            },
-            992: {
-                items: 3           // 3 items for large screens
-            }
-        }
-    });
-
-})(jQuery);
-*/
