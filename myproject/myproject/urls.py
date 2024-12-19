@@ -10,3 +10,5 @@ urlpatterns = [
     path('contact', views.contact, name= "contact"),
     
 ]
+
+urlpatterns += [path('silk/', include('silk.urls', namespace='silk'))]

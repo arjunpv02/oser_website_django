@@ -1,55 +1,49 @@
 {% load static %}
-
 <div class="section" id="contact-container">
-    <form id="contact-form" action="{% url 'contact' %}" method="POST" class="contact-left">
-        {% csrf_token %}
-        <div class="contact-left-title">
-            <h2>Need more info?<br>Connect with us!</h2>
-        </div>
-        <input type="text" name="name" placeholder="Your Name" class="contact-inputs" required>
-        <input type="email" name="email" placeholder="Your Email" class="contact-inputs" required>
-        <textarea name="message" placeholder="Your Message" class="contact-inputs" required></textarea>
-        <div id="response-message" class="message"></div> <!-- Message Display Area -->
-        <button type="submit" class="contact-btn">
-            Submit
-        </button>
-    </form>
-    <div class="contact-right">
-        <!-- You can add content or an image here -->
-    </div>
+<form id="contact-form" action="{% url 'contact' %}" method="POST" class="contact-left">
+{% csrf_token %}
+<div class="contact-left-title">
+<h2>Need more info?<br>Connect with us!</h2>
 </div>
-
+<input type="text" name="name" placeholder="Your Name" class="contact-inputs" required>
+<input type="email" name="email" placeholder="Your Email" class="contact-inputs" required>
+<textarea name="message" placeholder="Your Message" class="contact-inputs" required></textarea>
+<div id="response-message" class="message"></div> <!-- Message Display Area -->
+<button type="submit" class="contact-btn">
+Submit
+</button>
+</form>
+<div class="contact-right">
+    <img src="{% static '\assets\images\contact_us.png' %}" class="contact-icon" alt=""/>
+</div>
+</div>
 <script>
-    document.getElementById('contact-form').addEventListener('submit', function (e) {
-        e.preventDefault(); // Prevent default form submission
-        const form = e.target;
-
-        // Create a FormData object from the form
-        const formData = new FormData(form);
-
-        // Send the form data using Fetch API
-        fetch(form.action, {
-            method: 'POST',
-            body: formData,
-            headers: {
-                'X-CSRFToken': form.querySelector('input[name="csrfmiddlewaretoken"]').value
-            }
-        })
-        .then(response => response.json())
-        .then(data => {
-            const responseMessage = document.getElementById('response-message');
-            if (data.success) {
-                responseMessage.textContent = data.message;
-                responseMessage.style.color = 'green';
-            } else {
-                responseMessage.textContent = data.message;
-                responseMessage.style.color = 'red';
-            }
-        })
-        .catch(error => {
-            const responseMessage = document.getElementById('response-message');
-            responseMessage.textContent = "An error occurred. Please try again.";
-            responseMessage.style.color = 'red';
-        });
-    });
+document.getElementById('contact-form').addEventListener('submit', function (e) {
+e.preventDefault();
+const form = e.target;
+const formData = new FormData(form);
+fetch(form.action, {
+method: 'POST',
+body: formData,
+headers: {
+    'X-CSRFToken': form.querySelector('input[name="csrfmiddlewaretoken"]').value
+}
+})
+.then(response => response.json())
+.then(data => {
+const responseMessage = document.getElementById('response-message');
+if (data.success) {
+    responseMessage.textContent = data.message;
+    responseMessage.style.color = 'green';
+} else {
+    responseMessage.textContent = data.message;
+    responseMessage.style.color = 'red';
+}
+})
+.catch(error => {
+const responseMessage = document.getElementById('response-message');
+responseMessage.textContent = "An error occurred. Please try again.";
+responseMessage.style.color = 'red';
+});
+});
 </script>

@@ -1,69 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Oser.ai</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900&display=swap" rel="stylesheet">
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Oser.ai</title>
 {% load static %}
-
-
-<!-- jQuery (Ensure it's loaded before Owl Carousel) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900&display=swap" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-<!-- Owl Carousel JS -->
-
-  <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
-  <link rel="stylesheet" href="{% static 'assets/js/bootstrap.min.css' %}">
-  <link rel="stylesheet" href="{% static 'assets/js/animate.min.css' %}">
-  <script src="{% static 'assets/js/script.js' %}"></script>
-  <script src="{% static 'assets/js/jQuery.js' %}"></script>
+<link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+<link rel="stylesheet" href="{% static 'assets/js/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'assets/js/animate.min.css' %}">
+<script src="{% static 'assets/js/script.js' %}"></script>
+<script src="{% static 'assets/js/jQuery.js' %}"></script>
 </head>
-
-
 <body>
-
-
-
-    <!-- Include Navbar -->
-    {% include 'navbar.html' %}
-
-    <!-- Fullscreen Video (only on landing page) -->
-    <section class="landing-page" id="landing-page">
-
- <!-- Image as a Background -->
- <img src="static/assets/images/car___.jpg" alt="Background Image" class="image-background">
-  
-      <!-- Header Section (Main Heading) -->
-      <header>
-        <h1>Oser.ai</h1>
-        <p>  Empowering sustainable mobility with comprehensive B2B SaaS solutions </p>
-        <!--<p> Future of e mobility</p> -->
-      </header>
-    </section>
-
-
-
-<!-- Mission  Section: Below the video -->
+{% include 'navbar.html' %}
+<section class="landing-page" id="landing-page">
+<img id ="header-img" src="static/assets/images/car___.jpg" alt="Background Image" class="image-background" loading="lazy">
+<header>
+    <img src="static/assets/images/oser.ai-removebg dark bg cropped.png"/>
+<p>  Empowering sustainable mobility with comprehensive B2B SaaS solutions</p>
+</header>
+</section>
 {% include "mission.html" %}
-
-<!-- Services Section: Below the mission 
-    -->
 {% include "services.html" %}
-
-
 {% include "features.html"%}
-
-
 {% include "contact_us.html" %}
-  
-
 {% include 'footer.html' %}
-
 </body>
-
 </html>

@@ -1,81 +1,64 @@
 {% load static %}
-
 <footer>
-    <div class="footer-content">
-        <div class="footer-section">
-            <h3>Oser.AI</h3>
-            <p>
-                We provide software solutions to optimize charging stations with real-time energy,
-                traffic management, maintenance, and seamless EV connectivity.<br>
-            </p>
-            <div class="social-link">
-                <a href="#" target="_blank">
-                    <img src="{% static 'assets/images/icons/location.png' %}" alt="location" class="social-icon">
-                </a>
-                <span class="address-text">Bangalore, Karnataka, India</span>
-            </div>
-        </div>
-        <div class="footer-section">
-            <h3>Quick Links</h3>
-            <ul>
-                <li><a href="#landing-page">Home</a></li>
-                <li><a href="#mission">Mission</a></li>
-                <li><a href="#services-section">Services</a></li>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#contact-container">Contact</a></li>
-            </ul>
-        </div>
-        <div class="footer-section">
-            <h3>Follow Us</h3>
-            <div class="social-links">
-                <a href="#" target="_blank"><img src="{% static 'assets/images/icons/linkedin-footer.png' %}" alt="linkedin" class="social-icon"></a>
-                <a href="#" target="_blank"><img src="{% static 'assets/images/icons/email-footer.png' %}" alt="Gmail" class="social-icon"></a>
-                <a href="#" target="_blank"><img src="{% static 'assets/images/icons/instagram-footer.png' %}" alt="Instagram" class="social-icon"></a>
-                <a href="#" target="_blank"><img src="{% static 'assets/images/icons/youtube-footer.png' %}" alt="Youtube" class="social-icon"></a>
-            </div>
-
-            <!-- Email Subscription Form -->
-            <div class="email-subscription">
-                <form method="POST" id="subscribe">
-                    {% csrf_token %}
-                    <input type="email" name="email" id="email" placeholder="youremail@domain.com" required>
-                    <button type="submit" id="subscribe-button" class="subscribe-btn">Subscribe to newsletter</button>
-                </form>
-                <div id="message" class="message"></div> <!-- Message Display Area -->
-            </div>
-        </div>
-    </div>
-    <div class="footer-bottom">
-        <p>&copy; 2024 Oser.ai. All rights reserved.</p>
-    </div>
-</footer>
-
+<div class="footer-content">
+<div class="footer-section">
+<h3>Oser.AI</h3>
+<p>We provide software solutions to optimize charging stations with real-time energy,
+traffic management, maintenance, and seamless EV connectivity.<br></p>
+<div class="social-link">
+<a href="#" target="_blank">
+<img src="{% static 'assets/images/icons/location.png' %}" alt="location" class="social-icon">
+</a>
+<span class="address-text">Bangalore, Karnataka, India</span>
+</div></div>
+<div class="footer-section">
+<h3>Quick Links</h3>
+<ul>
+<li><a href="#landing-page">Home</a></li>
+<li><a href="#mission">Mission</a></li>
+<li><a href="#services-section">Services</a></li>
+<li><a href="#features">Features</a></li>
+<li><a href="#contact-container">Contact</a></li>
+</ul></div>
+<div class="footer-section">
+<h3>Follow Us</h3>
+<div class="social-links">
+<a href="#" target="_blank"><img src="{% static 'assets/images/icons/linkedin-footer.png' %}" alt="linkedin" class="social-icon"></a>
+<a href="#" target="_blank"><img src="{% static 'assets/images/icons/email-footer.png' %}" alt="Gmail" class="social-icon"></a>
+<a href="#" target="_blank"><img src="{% static 'assets/images/icons/instagram-footer.png' %}" alt="Instagram" class="social-icon"></a>
+<a href="#" target="_blank"><img src="{% static 'assets/images/icons/youtube-footer.png' %}" alt="Youtube" class="social-icon"></a>
+</div>
+<div class="email-subscription"><!-- Email Subscription Form -->
+<form method="POST" id="subscribe">
+{% csrf_token %}
+<input type="email" name="email" id="email" placeholder="youremail@domain.com" required>
+<button type="submit" id="subscribe-button" class="subscribe-btn">Subscribe</button>
+</form>
+<div id="message" class="message"></div> <!-- Message Display Area -->
+</div></div></div>
+<div class="footer-bottom">
+<p>&copy; 2024 Oser.ai. All rights reserved.</p>
+</div></footer>
 <script src="https://code.jquery.com/jquery-3.5.1.js" 
 integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" 
 crossorigin="anonymous"></script> 
-
 <script type="text/javascript"> 
-    $(document).on('submit', '#subscribe', function(e) { 
-        e.preventDefault(); 
-        $.ajax({ 
-            type: 'POST', 
-            url: '{% url "subscribe" %}', 
-            data: { 
-                email: $("#email").val(), 
-                csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val() 
-            }, 
-            success: function(response) { 
-                const message = response.message; 
-                const success = response.success; 
-                const messageDiv = $("#message"); 
-                
-                messageDiv.text(message); 
-                messageDiv.css("color", success ? "green" : "red"); 
-            }, 
-            error: function() { 
-                $("#message").text("An error occurred. Please try again."); 
-                $("#message").css("color", "red"); 
-            } 
-        }); 
-    }); 
+$(document).on('submit', '#subscribe', function(e) { 
+e.preventDefault(); 
+$.ajax({ 
+type: 'POST', 
+url: '{% url "subscribe" %}', 
+data: { 
+email: $("#email").val(), 
+csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val() }, 
+success: function(response) { 
+const message = response.message; 
+const success = response.success; 
+const messageDiv = $("#message"); 
+messageDiv.text(message); 
+messageDiv.css("color", success ? "green" : "red"); }, 
+error: function() { 
+$("#message").text("An error occurred. Please try again."); 
+$("#message").css("color", "red"); 
+} }); }); 
 </script>
