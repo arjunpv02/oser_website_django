@@ -708,7 +708,7 @@ textarea.contact-inputs {
 
 .contact-right img {
   width: 500px;
-  opacity: 90%;
+  opacity: 90;
 }
 
 @media (max-width: 800px) {
