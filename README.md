@@ -1,2 +1,2 @@
 # oser_website
-Website for company Oser.ai
+Website for Oser.ai with backend python django
